@@ -37,7 +37,7 @@ class Game{
     
     play(){
         
-                //form.hide();
+                form.hide();
 
                 Player.getPlayerInfo();
                  image(back_img, 0, 0, 1000, 800);
@@ -56,14 +56,15 @@ class Game{
                      players[index - 1].y = y;
                        
                      if(index === player.index){
-                    // to display player name on the basket.
-                        fill("black");
-                         textSize(20);
+                         // to display player name on the basket.
+                         fill("black");
+                         textSize(25);
                          text(allPlayers[plr].name ,x-25,y+25);
+
                          
                      }
-                    
-                     //text to display player score.
+                    text("score :" + score, 500, 50);
+                       //text to display player score.
                  
                  }
                 
@@ -100,15 +101,18 @@ class Game{
                  }
                  
                   if (player.index !== null) {
-                    for(var i = 0; i < fruitGroup.length; i++){
-                        if(fruitGroup.get(i).isTouching(players)){
-                            fruitGroup.get(i).destroy();
-                            player.score = player.score + 1;
-                            player.update();
-                        }
-                    }
-                     //fill code here, to destroy the objects. (Use the one in the class project 39)
-                     // add the condition to calculate the score. and use update ti update the values in the database.
+                     //fill code here, to destroy the objects.
+                  for(var i = 0; i < fruitGroup.length; i++){
+                      if(fruitGroup.get(i).isTouching(players)){
+                          fruitGroup.get(i).destroy();
+                          player.score = player.score + 1;
+                          player.update();
+                      }
+                  }
+
+                  
+  // add the condition to calculate the score. and use update ti update the values in the database.
+
                   }
                 
 
